@@ -1,0 +1,26 @@
+
+target:
+  base_url: "https://php.yourblog.com/" # anything can be your wordpress running in docker at localhost:8080
+  start_page: "" # not used 
+  replace_host: "https://html.static.com/" # the final url to be used in production
+  base_url_confinement: true # not honored yet (always True)
+  delay: .3
+
+ingester:
+  ignore:
+    - '.php$'
+    - '.*?.*=.*'
+
+outputter:
+  path: public_html # the path to the output folder (html files)
+  overwrite: true
+  static_files: # not honored yet
+    input: static_content
+    output: static
+  other_files: # not honored yet just copy the needed files to the output folder manually
+    - wp-sitemap.xml
+    - robots.txt
+    - ads.txt
+
+http_server: # the port to use to serve your website localy for testing after your run the petrify command
+  port: 8080
