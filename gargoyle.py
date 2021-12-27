@@ -11,7 +11,6 @@ import datetime
 import sys
 from bin.Outputter import Outputter
 
-ug = UrlGetter(False)
 
 def start(config):
     petrifyer = Petrifyer(config)
